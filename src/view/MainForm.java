@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 
 public class MainForm extends javax.swing.JFrame {
@@ -40,7 +41,7 @@ public class MainForm extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblGepSzama = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -195,7 +196,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Aktuális kör állapota"));
 
-        jLabel3.setText("gép választása:");
+        lblGepSzama.setText("gép választása:");
 
         jLabel4.setText("kör nyertese:");
 
@@ -206,7 +207,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addComponent(lblGepSzama)
                     .addComponent(jLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -214,7 +215,7 @@ public class MainForm extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(lblGepSzama)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -304,10 +305,10 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuMentActionPerformed
 
     int gomb;
-    
+
     private void Mentes() throws HeadlessException {
         jFileChooser1.showSaveDialog(this);
-         gomb = JFileChooser.SAVE_DIALOG;
+        gomb = JFileChooser.SAVE_DIALOG;
     }
 
     private void mnuKilepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuKilepActionPerformed
@@ -315,9 +316,9 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuKilepActionPerformed
 
     private void kilepes() throws HeadlessException {
-        if(chbMent.isSelected()){
+        if (chbMent.isSelected()) {
             Mentes();
-        }else{
+        } else {
             System.exit(0);
         }
     }
@@ -327,8 +328,22 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_kilepes
 
     private void btnInditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInditActionPerformed
-   
+        int szam = RandomSzam(1, 4);
+        if(szam==1){
+            lblGepSzama.setText("gép választása: "+"kő");
+        }
+        if(szam==2){
+            lblGepSzama.setText("gép választása: "+"papír");
+        }
+        if(szam==2){
+            lblGepSzama.setText("gép választása: "+"olló");
+        }
+        
     }//GEN-LAST:event_btnInditActionPerformed
+
+    public int RandomSzam(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
 
     private void kivalaszt(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivalaszt
         btnIndit.setEnabled(true);
@@ -376,7 +391,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
@@ -400,6 +414,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel lblGepSzama;
     private javax.swing.JMenuItem mnuKilep;
     private javax.swing.JMenuItem mnuMent;
     private javax.swing.JSpinner numMax;

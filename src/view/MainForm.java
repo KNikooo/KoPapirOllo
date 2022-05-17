@@ -7,6 +7,7 @@ public class MainForm extends javax.swing.JFrame {
 
     public MainForm() {
         initComponents();
+        btnIndit.setEnabled(false);
     }
 
     /**
@@ -133,15 +134,35 @@ public class MainForm extends javax.swing.JFrame {
 
         btnIndit.setText("Kör indítása");
         btnIndit.setActionCommand("");
+        btnIndit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInditActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(jRadioButton1);
         jRadioButton1.setText("Kő");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kivalaszt(evt);
+            }
+        });
 
         buttonGroup2.add(jRadioButton2);
         jRadioButton2.setText("Papír");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kivalaszt(evt);
+            }
+        });
 
         buttonGroup2.add(jRadioButton3);
         jRadioButton3.setText("Olló");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kivalaszt(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -304,6 +325,14 @@ public class MainForm extends javax.swing.JFrame {
     private void kilepes(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_kilepes
         kilepes();
     }//GEN-LAST:event_kilepes
+
+    private void btnInditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInditActionPerformed
+   
+    }//GEN-LAST:event_btnInditActionPerformed
+
+    private void kivalaszt(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivalaszt
+        btnIndit.setEnabled(true);
+    }//GEN-LAST:event_kivalaszt
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
